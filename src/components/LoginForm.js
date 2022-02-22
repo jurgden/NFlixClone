@@ -1,76 +1,86 @@
-import React, { useState } from 'react';
-import { NavLink, useNavigate  } from "react-router-dom";
+import React, { useState } from "react";
+// import { NavLink, useNavigate  } from "react-router-dom";
 
-import './LoginForm.css';
+import "./LoginForm.css";
 
-function LoginForm () {
+function LoginForm() {
+  const [details, setDetails] = useState({ name: "", email: "", password: "" });
 
-    const [details, setDetails] = useState({name: "", email: "", password: ""});
+  const [user, setUser] = useState({ name: "", email: "" });
+  const [error, setError] = useState("");
 
-    const [user, setUser] = useState({name: "", email:""});
-    const [error, setError] = useState("");
+  const submitHandler = (e) => {
+    e.preventDefault();
+    Login(details);
+  };
 
-    const submitHandler = e => {
-        e.preventDefault();
-        Login(details);
-    }
+  const Login = () => {};
 
-    const Login = details => {
-        console.log(details);
-    }
+  const Logout = () => {
+    setUser({ name: "", email: "" });
+    console.log("Logout");
+  };
 
-    const Logout = () => {
-        setUser({name: "", email: ""})
-        console.log("Logout");
-    }
-
-
-    return (
-        <div className="login_form">
-        <form onSubmit={submitHandler}>
-            <div >
-                <h1 className='form_text'>
-                    Login
-                </h1>
-                {/* ERROR */}
-                <div className="form_text ">
-                    <label htmlFor="name"> Name: </label>
-                    <input 
-                        type="text" 
-                        name="name"
-                        id="name"
-                        onChange={e => setDetails({...details, name: e.target.value})}
-                        value={details.name}
-                    />
-                </div>
-
-                <div className="form_text ">
-                    <label htmlFor="email"> Email: </label>
-                    <input 
-                        type="password"
-                        name="email"
-                        id="email"
-                        onChange={e => setDetails({...details, email: e.target.value})}
-                        value={details.email}
-                    />
-                </div>
-
-                <div className="form_text ">
-                    <label htmlFor="password"> Password: </label>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        onChange={e => setDetails({...details, password: e.target.value})}
-                        value={details.password}
-                    />
-                </div>
-
-                <input className="nav_button1" type="submit" value="LOGIN" />
-            </div>
-        </form>
+  return (
+    <div className="login-form">
+      <form class="form" onSubmit={submitHandler}>
+        <h1>Netflix Clone Account Login</h1>
+        {/* ERROR */}
+        <div className="form-text ">
+          <label for="name" class="form-label">
+            Username
+          </label>
+          <input
+            id="username"
+            type="text"
+            name="username"
+            class="form-input"
+            placeholder="Enter your username"
+            onChange={(e) => setDetails({ ...details, name: e.target.value })}
+            value={details.username}
+          />
         </div>
-    );
+
+        <div className="form-text ">
+          <label for="email" class="form-label">
+            E-mail
+          </label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            class="form-input"
+            placeholder="Enter your E-mail address"
+            onChange={(e) => setDetails({ ...details, email: e.target.value })}
+            value={details.email}
+          />
+        </div>
+
+        <div className="form-text ">
+          <label for="password" class="form-label">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            class="form-input"
+            placeholder="Enter your password"
+            onChange={(e) =>
+              setDetails({ ...details, password: e.target.value })
+            }
+            value={details.password}
+          />
+        </div>
+
+        <input className="nav-button1" type="submit" value="Log me in!" />
+        <span class="form-input-login">
+          Don't have an account? Signup
+          <a href="http://localhost:3000/signup"> here</a>
+        </span>
+      </form>
+    </div>
+  );
 }
 
 export default LoginForm;

@@ -1,34 +1,92 @@
-.login_form {
-  padding: 0;
-  box-sizing: border-box;
-  width: 400px;
-  margin: 0 auto;
-  background-color: red;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.login-form {
+  margin: 100px auto;
+  width: 1000px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 10px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.nav_button1 {
-  text-align: center;
-  border: 4px solid #9e3623;
-  font-size: 20px;
-  background: #faf8f8;
-  color: rgb(20, 23, 24);
-  font-weight: 500;
-  transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
-  border-radius: 25px;
+.nav-button1 {
+  width: 80%;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 176, 255) 0%,
+    rgb(0, 232, 236) 100%
+  );
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
 }
 
-.nav_button1:focus {
-  color: rgba(255, 64, 0, 0.993);
-  border: 1px solid #1fec04;
+.nav-button1:focus {
+  color: #fff;
+  border: 1px solid #fff;
   box-shadow: 0 0 20px #ffffff;
 }
 
-.form_text {
+.nav-button1:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 143, 255) 0%,
+    rgb(12, 99, 250) 100%
+  );
+  transition: all 0, 4s ease-out;
+}
+
+.form-text {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 0.5rem;
+  width: 80%;
+}
+
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form h1 {
+  font-size: 1rem;
+  text-align: start;
+  width: 80%;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.form-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding-left: 10px;
+  outline: none;
+  height: 40px;
+  border: 1px solid rebeccapurple;
+  border-radius: 20px;
+  background-color: whitesmoke;
+}
+
+.form-input::placeholder {
+  color: #595959;
+  font-size: 12px;
 }
